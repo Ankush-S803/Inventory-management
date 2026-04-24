@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your suppliers — add, edit, delete supplier records">
+    <title>Suppliers | Inventory Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <h1>📦 InventoryPro</h1>
+            <span>Stock Management</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-link"><span class="icon">🏠</span> Dashboard</a>
+            <a href="products.html" class="nav-link"><span class="icon">📋</span> Products</a>
+            <a href="stock.html" class="nav-link"><span class="icon">📊</span> Stock Transactions</a>
+            <a href="suppliers.html" class="nav-link active"><span class="icon">🏢</span> Suppliers</a>
+            <a href="low-stock.html" class="nav-link"><span class="icon">🚨</span> Low Stock Alerts</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <div class="page-header">
+            <div>
+                <h2>Suppliers</h2>
+                <p>Manage your supplier directory</p>
+            </div>
+            <button class="btn btn-accent" onclick="openAddSupplierModal()" id="btn-add-supplier">
+                ＋ Add Supplier
+            </button>
+        </div>
+
+        <!-- Suppliers Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="supplier-tbody">
+                    <tr><td colspan="5"><div class="loader"><div class="spinner"></div></div></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- ==================== ADD / EDIT SUPPLIER MODAL ==================== -->
+    <div class="modal-overlay" id="supplier-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="supplier-modal-title">Add New Supplier</h3>
+                <button class="modal-close" onclick="closeModal('supplier-modal')">×</button>
+            </div>
+            <form id="supplier-form" onsubmit="saveSupplier(event)">
+                <div class="modal-body">
+                    <input type="hidden" id="supplier-id">
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label for="supplier-name">Supplier Name *</label>
+                            <input type="text" id="supplier-name" required placeholder="e.g. TechParts India">
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-email">Email *</label>
+                            <input type="email" id="supplier-email" required placeholder="supplier@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="supplier-phone">Phone Number *</label>
+                            <input type="tel" id="supplier-phone" required placeholder="+91 98765 43210">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-ghost" onclick="closeModal('supplier-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-accent" id="btn-save-supplier">Save Supplier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadSuppliers);
+    </script>
+</body>
+</html>

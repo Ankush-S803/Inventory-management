@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Inventory & Stock Management System — Dashboard">
+    <title>Dashboard | Inventory Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" onclick="toggleSidebar()" id="menu-toggle">☰</button>
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h1>📦 InventoryPro</h1>
+            <span>Stock Management</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-link active" id="nav-dashboard">
+                <span class="icon">🏠</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link" id="nav-products">
+                <span class="icon">📋</span> Products
+            </a>
+            <a href="stock.html" class="nav-link" id="nav-stock">
+                <span class="icon">📊</span> Stock Transactions
+            </a>
+            <a href="suppliers.html" class="nav-link" id="nav-suppliers">
+                <span class="icon">🏢</span> Suppliers
+            </a>
+            <a href="low-stock.html" class="nav-link" id="nav-lowstock">
+                <span class="icon">🚨</span> Low Stock Alerts
+                <span class="badge" id="sidebar-lowstock-badge" style="display:none;">0</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h2>Dashboard</h2>
+                <p>Overview of your inventory system</p>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">📦</div>
+                <div class="stat-info">
+                    <h3 id="stat-products">—</h3>
+                    <p>Total Products</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green">📊</div>
+                <div class="stat-info">
+                    <h3 id="stat-transactions">—</h3>
+                    <p>Total Transactions</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon orange">🏢</div>
+                <div class="stat-info">
+                    <h3 id="stat-suppliers">—</h3>
+                    <p>Total Suppliers</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon red">🚨</div>
+                <div class="stat-info">
+                    <h3 id="stat-lowstock">—</h3>
+                    <p>Low Stock Alerts</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Low Stock Alerts Section -->
+        <div class="card" style="margin-bottom: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <h3>⚠️ Low Stock Alerts</h3>
+                <a href="low-stock.html" class="btn btn-ghost btn-sm">View All →</a>
+            </div>
+            <div class="alert-grid" id="dashboard-alerts">
+                <div class="loader"><div class="spinner"></div></div>
+            </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="table-container">
+            <div class="table-toolbar">
+                <h3>Recent Transactions</h3>
+                <a href="stock.html" class="btn btn-ghost btn-sm">View All →</a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Product</th>
+                        <th>Type</th>
+                        <th>Qty</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="recent-txn-body">
+                    <tr><td colspan="6"><div class="loader"><div class="spinner"></div></div></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadDashboard);
+    </script>
+</body>
+</html>

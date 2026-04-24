@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low stock alerts — products below their reorder threshold">
+    <title>Low Stock Alerts | Inventory Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <h1>📦 InventoryPro</h1>
+            <span>Stock Management</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-link"><span class="icon">🏠</span> Dashboard</a>
+            <a href="products.html" class="nav-link"><span class="icon">📋</span> Products</a>
+            <a href="stock.html" class="nav-link"><span class="icon">📊</span> Stock Transactions</a>
+            <a href="suppliers.html" class="nav-link"><span class="icon">🏢</span> Suppliers</a>
+            <a href="low-stock.html" class="nav-link active"><span class="icon">🚨</span> Low Stock Alerts</a>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <div class="page-header">
+            <div>
+                <h2>🚨 Low Stock Alerts</h2>
+                <p>Products below their reorder threshold — <strong id="low-stock-count">0</strong> items need attention</p>
+            </div>
+            <a href="stock.html" class="btn btn-success">📥 Record Stock IN</a>
+        </div>
+
+        <!-- Alert Cards Grid -->
+        <div class="alert-grid" id="low-stock-grid">
+            <div class="loader" style="grid-column: 1/-1;"><div class="spinner"></div></div>
+        </div>
+
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadLowStock);
+    </script>
+</body>
+</html>

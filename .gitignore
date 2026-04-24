@@ -1,0 +1,27 @@
+# Compiled class files
+*.class
+
+# WEB-INF compiled output
+src/main/webapp/WEB-INF/classes/
+src/main/webapp/WEB-INF/lib/
+
+# IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build output
+target/
+build/
+out/
+
+# Logs
+*.log
